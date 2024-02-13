@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Add Member to Team</h2>
+    <form th:action="@{/member/add}" method="post" th:object="${newMember}">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}"><br><br>
+        <label>Age:</label>
+        <input type="text" th:field="*{age}"><br><br>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}"><br><br>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

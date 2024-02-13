@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Add task</h2>
+    <form th:action="@{/task/addTaskOnProject}" method="post">
+        <input type="hidden" name="teamId" th:value="${teamId}">
+        <label>Task Name:</label>
+        <input type="text" name="taskName"><br><br>
+
+        <select name="memberName">
+            <option th:each="member : ${memberWithNoTask}" th:value="${member.name}" th:text="${member.name}"></option>
+        </select><br><br>
+
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
