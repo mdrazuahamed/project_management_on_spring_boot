@@ -27,7 +27,6 @@ public class MemberController {
 
     @PostMapping("/add")
     public String addMember(Member member) {
-        System.out.println(member);
         this.memberRepository.addMember(member);
         System.out.println(memberRepository.getMemberList());
         return "add-member-success";

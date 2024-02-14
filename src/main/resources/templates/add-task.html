@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h2>Add task</h2>
-    <form th:action="@{/task/addTaskOnProject}" method="post">
+<div class="container">
+    <h2 class="mt-5">Please Give Task Information</h2>
+    <form th:action="@{/task/addTaskOnProject}" method="post" class="mt-4">
         <input type="hidden" name="teamId" th:value="${teamId}">
-        <label>Task Name:</label>
-        <input type="text" name="taskName"><br><br>
+        <div class="form-group">
+            <label for="taskName">Task Name:</label>
+            <input type="text" name="taskName" id="taskName" class="form-control" placeholder="Enter task name">
+        </div>
 
-        <select name="memberName">
-            <option th:each="member : ${memberWithNoTask}" th:value="${member.name}" th:text="${member.name}"></option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="memberName">Assign to:</label>
+            <select name="memberName" id="memberName" class="form-control">
+                <option selected disabled>Select member</option>
+                <option th:each="member : ${memberWithNoTask}" th:value="${member.name}" th:text="${member.name}"></option>
+            </select>
+        </div>
 
-        <button type="submit">Add</button>
+        <button type="submit" class="btn btn-primary">Add</button>
     </form>
+</div>
 </body>
 </html>

@@ -1,5 +1,4 @@
 package com.razuahamed.springboot.project_management.model;
-
 import java.io.Serializable;
 
 public class Member implements Serializable {

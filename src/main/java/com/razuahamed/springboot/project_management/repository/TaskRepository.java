@@ -37,6 +37,9 @@ public class TaskRepository {
     }
 
     public long newId(){
+        if(taskList.size() == 0){
+            return 10;
+        }
         return taskList.get(taskList.size()-1).getId()+20;
     }
 
