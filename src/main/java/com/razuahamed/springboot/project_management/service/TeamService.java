@@ -1,5 +1,4 @@
 package com.razuahamed.springboot.project_management.service;
-
 import com.razuahamed.springboot.project_management.model.Member;
 import com.razuahamed.springboot.project_management.model.Task;
 import com.razuahamed.springboot.project_management.model.Team;
@@ -21,6 +20,7 @@ public class TeamService {
     public List<Team> getAllTeam(){
         return teamRepository.getTeamList();
     }
+
     public Team getTeamWithName(String name) {
         List<Team> allTeams = teamRepository.getTeamList();
 
@@ -29,7 +29,6 @@ public class TeamService {
                 return teamIndex;
             }
         }
-
         return null;
     }
 
@@ -56,7 +55,6 @@ public class TeamService {
 
         if(averageAges[0]>averageAges[1]) {
             return allTeams.get(0);
-
         }
         else
             return allTeams.get(1);
@@ -81,11 +79,16 @@ public class TeamService {
         System.out.println("Number of Task in " + allTeams.get(0).getName() + " Is equal " + numberOfTaskInTeams[0] + " and Number of Task in " +  allTeams.get(1).getName() + " Is equal " + numberOfTaskInTeams[1] );
         if(numberOfTaskInTeams[0]>numberOfTaskInTeams[1]) {
             return allTeams.get(0);
-
         }
         else return allTeams.get(1);
+    }
 
-
+    public void removeTaskFromTeamById(Task task, long teamId) {
+        for (Team team : teamRepository.getTeamList()) {
+            if (teamId == team.getId()) {
+                team.getTaskList().remove(task);
+            }
+        }
     }
 
     @Override

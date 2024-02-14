@@ -1,5 +1,4 @@
 package com.razuahamed.springboot.project_management.service;
-
 import com.razuahamed.springboot.project_management.model.Task;
 import com.razuahamed.springboot.project_management.model.Team;
 import com.razuahamed.springboot.project_management.repository.TaskRepository;
@@ -20,7 +19,7 @@ public class TaskService {
 
     public void getTaskWithTeamAndMember() {
         List<Team> teamList = teamRepository.getTeamList();
-        for(Team team : teamList){
+        for(Team team : teamList) {
             for(Task task : team.getTaskList()) {
                 System.out.println("Member Name = " + task.getMember().getName() + ", Team name = " + team.getName() + ", Task name = " + task.getName());
 
@@ -30,9 +29,16 @@ public class TaskService {
 
     public void getTaskWithMember() {
         List<Task> taskList = taskRepository.getTaskList();
-        for(Task task : taskList){
+        for(Task task : taskList) {
             System.out.println("Task name = " + task.getName() + ", Member Name = " + task.getMember().getName());
         }
     }
 
+    @Override
+    public String toString() {
+        return "TaskService{" +
+                "teamRepository=" + teamRepository +
+                ", taskRepository=" + taskRepository +
+                '}';
+    }
 }

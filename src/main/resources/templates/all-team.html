@@ -9,6 +9,8 @@
     <thead>
     <tr>
         <th>Team Name</th>
+        <th>Member name and Assign Task</th>
+        <th>Adding option</th>
     </tr>
     </thead>
     <tbody>
@@ -16,7 +18,15 @@
         <td th:text="${team.name}"></td>
         <td>
             <ul>
-                <li th:each="task : ${team.taskList}" th:text="'Member name is ' + ${task.member.name} + ', and assign task is  ' + ${task.name} "></li>
+                <li th:each="task : ${team.taskList}">
+                    <span th:text="'Member name is ' + ${task.member.name} + ', and assign task is  ' + ${task.name}"></span>
+                    <!-- Add the button here -->
+                    <form th:action="@{/task/completeTask}" method="get">
+                        <input type="hidden" name="taskId" th:value="${task.id}">
+                        <input type="hidden" name="teamId" th:value="${team.id}">
+                        <button type="submit">Completed</button>
+                    </form>
+                </li>
             </ul>
         </td>
         <td>
@@ -26,6 +36,7 @@
             </form>
         </td>
     </tr>
+    <tr><td colspan="3"><br></td></tr>
     </tbody>
 </table>
 </body>

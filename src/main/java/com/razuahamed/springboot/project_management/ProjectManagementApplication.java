@@ -19,7 +19,7 @@ public class ProjectManagementApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args, TeamService teamService, TeamRepository teamRepository, TaskRepository taskRepository, MemberRepository memberRepository, TaskService taskService) {
 		return runner -> {
-			System.out.println("Okay");
+			System.out.println("Working");
 //			System.out.println(teamService.getTeamWithName("Firmware"));
 //			System.out.println("\n\n");
 //			System.out.println(teamService.getTeamHaveMaxAverageAge());

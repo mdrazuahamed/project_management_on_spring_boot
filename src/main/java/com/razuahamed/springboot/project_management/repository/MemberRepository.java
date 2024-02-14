@@ -1,5 +1,4 @@
 package com.razuahamed.springboot.project_management.repository;
-
 import com.razuahamed.springboot.project_management.model.Member;
 import com.razuahamed.springboot.project_management.model.Task;
 import org.springframework.stereotype.Component;
@@ -20,6 +19,8 @@ public class MemberRepository {
         Member safi = new Member("Ataus Safi", 50, "safi@dsinnovators.com", 50);
         Member rafi = new Member("Rubait Rafi", 25, "rafi@dsinnovators.com", 60);
         Member rifa = new Member("Rifa Mist", 24, "rifa@dsinnovators.com", 90);
+        Member tulon = new Member("Tulon khan", 25, "tulon@dsinnovators.com", 100);
+        Member fardin = new Member("Fardin Mia", 26, "fardin@dsinnovators.com", 110);
 
         memberList.add(akash);
         memberList.add(nakib);
@@ -28,12 +29,15 @@ public class MemberRepository {
         memberList.add(safi);
         memberList.add(rafi);
         memberList.add(rifa);
+        memberList.add(tulon);
+        memberList.add(fardin);
     }
 
     public void addMember(Member member) {
         member.setId(memberList.get(memberList.size()-1).getId()+10);
         memberList.add(member);
     }
+
     public List<Member> getMemberList() {
         return memberList;
     }
@@ -43,8 +47,8 @@ public class MemberRepository {
     }
 
     public Member getMemberByName(String name) {
-        for(Member member : memberList){
-            if(member.getName().equals(name)){
+        for(Member member : memberList) {
+            if(member.getName().equals(name)) {
                 return member;
             }
         }

@@ -1,5 +1,4 @@
 package com.razuahamed.springboot.project_management.controller;
-
 import com.razuahamed.springboot.project_management.model.Member;
 import com.razuahamed.springboot.project_management.repository.MemberRepository;
 import com.razuahamed.springboot.project_management.service.MemberService;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-
     private MemberRepository memberRepository;
     private MemberService memberService;
 
@@ -34,12 +32,4 @@ public class MemberController {
         System.out.println(memberRepository.getMemberList());
         return "add-member-success";
     }
-
-//    @GetMapping("/addMemberInProject")
-//    public String addMemberInProject(Model model) {
-//        model.addAttribute("memberWithNoTeam",memberService.memberListInNoTeam());
-//        System.out.println(memberService.memberListInNoTeam());
-//        return "member-with-no-team";
-//    }
-
 }

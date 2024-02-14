@@ -1,5 +1,4 @@
 package com.razuahamed.springboot.project_management.service;
-
 import com.razuahamed.springboot.project_management.model.Member;
 import com.razuahamed.springboot.project_management.model.Task;
 import com.razuahamed.springboot.project_management.model.Team;
@@ -37,5 +36,13 @@ public class MemberService {
             }
         }
         return memberListInNoTeam;
+    }
+
+    @Override
+    public String toString() {
+        return "MemberService{" +
+                "memberRepository=" + memberRepository +
+                ", teamRepository=" + teamRepository +
+                '}';
     }
 }

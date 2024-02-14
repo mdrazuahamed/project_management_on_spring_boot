@@ -1,5 +1,4 @@
 package com.razuahamed.springboot.project_management.repository;
-
 import com.razuahamed.springboot.project_management.model.Member;
 import com.razuahamed.springboot.project_management.model.Task;
 import org.springframework.stereotype.Component;
@@ -55,6 +54,7 @@ public class TaskRepository {
         }
         return null;
     }
+
     public MemberRepository getMemberRepository() {
         return memberRepository;
     }
@@ -71,4 +71,11 @@ public class TaskRepository {
         this.taskList = taskList;
     }
 
+    @Override
+    public String toString() {
+        return "TaskRepository{" +
+                "memberRepository=" + memberRepository +
+                ", taskList=" + taskList +
+                '}';
+    }
 }
